@@ -1,0 +1,12 @@
+{
+  "name": "jquery-family",
+  "version": "1.0.0",
+  "description": "jquery and its family members",
+  "dependencies": {
+    "seajs": "*",
+    "mocha": "*",
+    "expect.js": "*",
+    "request": "*",
+    "async": "*"
+  }
+}
