@@ -91,4 +91,5 @@ module.exports = function(grunt) {
     s += latest || '';
     return s;
   }
+  grunt.registerTask('default', ['check']);
 };
