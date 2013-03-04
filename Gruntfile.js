@@ -7,9 +7,6 @@ module.exports = function(grunt) {
     return fs.statSync(name).isDirectory() && !grunt.util._.contains(['.git', '_tasks', 'node_modules'], name);
   });
 
-  grunt.registerTask('test', function() {
-  });
-
   grunt.registerTask('check', function() {
     var done = this.async();
 

@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "jquery and its family members",
   "dependencies": {
+    "grunt-spm-build": "*",
     "seajs": "*",
     "mocha": "*",
     "expect.js": "*",
     "request": "*",
     "async": "*"
+  },
+  "scripts": {
+    "test":  "mocha-phantomjs index.html"
   }
 }
