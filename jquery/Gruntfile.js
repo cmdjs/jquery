@@ -36,6 +36,11 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('noconflict', function() {
+    grunt.file.write('dist/noconflict.js', '$.noConflict(true);');
+    grunt.file.write('dist/noconflict-debug.js', '$.noConflict(true);');
+  });
+
   grunt.loadTasks('../_tasks/download/tasks');
-  grunt.registerTask('build', ['download']);
+  grunt.registerTask('build', ['download', 'noconflict']);
 };
