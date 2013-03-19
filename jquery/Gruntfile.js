@@ -5,6 +5,7 @@ module.exports = function(grunt) {
     var id = pkg.family + '/' + pkg.name + '/' + pkg.version + '/' + filename;
     code = code.replace(/&&\s*define\.amd\s*&&\s*define\.amd\.jQuery/, '');
     code = code.replace(/define\(\s*"jquery/, 'define("' + id);
+    code = code + '\n;$.noConflict();\n';
     return code;
   }
 
@@ -36,11 +37,6 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('noconflict', function() {
-    grunt.file.write('dist/noconflict.js', '$.noConflict(true);');
-    grunt.file.write('dist/noconflict-debug.js', '$.noConflict(true);');
-  });
-
   grunt.loadTasks('../_tasks/download/tasks');
-  grunt.registerTask('build', ['download', 'noconflict']);
+  grunt.registerTask('build', ['download']);
 };
