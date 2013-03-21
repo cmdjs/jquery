@@ -1,0 +1,30 @@
+{
+  "root": "jquery",
+  "name": "datatables",
+  "family": "jquery",
+  "description": "DataTables enhances HTML tables with the ability to sort, filter and page the data in the table very easily. It provides a comprehensive API and set of configuration options, allowing you to consume data from virtually any data source.",
+  "version": "1.9.4",
+  "package": "https://raw.github.com/DataTables/DataTables/master/package.json",
+  "homepage": "http://www.datatables.net/",
+  "author": {
+    "name": "Allan Jardine",
+    "url": "http://sprymedia.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DataTables/DataTables.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DataTables/DataTables.git"
+  },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "http://datatables.net/license_bsd"
+    },
+    {
+      "type": "GPLv2",
+      "url": "http://datatables.net/license_gpl2"
+    }
+  ]
+}
