@@ -5,6 +5,7 @@ module.exports = function(grunt) {
     var id = pkg.family + '/' + pkg.name + '/' + pkg.version + '/' + filename;
     code = code.replace(/&&\s*define\.amd\s*&&\s*define\.amd\.jQuery/, '');
     code = code.replace(/define\(\s*"jquery/, 'define("' + id);
+    code = code + '\n;$.noConflict();\n';
     return code;
   }
 
