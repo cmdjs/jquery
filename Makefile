@@ -6,3 +6,4 @@ build:
 	grunt build --gruntfile jquery/Gruntfile.js
 	grunt build --gruntfile tablesorter/Gruntfile.js
 	grunt build --gruntfile datatables/Gruntfile.js
+	grunt build --gruntfile easing/Gruntfile.js
