@@ -2,7 +2,7 @@
   "name": "jquery",
   "family": "jquery",
   "description": "JavaScript library for DOM operations",
-  "version": "1.9.1",
+  "version": "2.0.3",
   "package": "https://raw.github.com/jquery/jquery/master/package.json",
   "homepage": "http://jquery.com",
   "author": {
