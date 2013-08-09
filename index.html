@@ -3,21 +3,26 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <title>JQuery Family</title>
-    <link href="node_modules/mocha/mocha.css?v=e5358" type="text/css" rel="stylesheet" charset="utf-8">
-    <script src="node_modules/seajs/dist/sea.js"></script>
+    <title>Gallery</title>
+    <link href="node_modules/mocha/mocha.css" type="text/css" rel="stylesheet" charset="utf-8">
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="sea-modules/seajs/seajs/2.1.1/sea.js"></script>
+    <script src="sea-modules/jquery/jquery/1.7.2/jquery.js"></script>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect.js/expect.js"></script>
     <script type="text/javascript">
       seajs.config({
-        base: './',
         alias: {
-          '$': 'jquery/dist/jquery'
+          '$': 'jquery/jquery/1.7.2/jquery'
         },
         map: [
           function(url) {
-            var regex = /jquery\/(.*?)\/\d+\..*?\/(.*)$/
-            return url.replace(regex, '$1/dist/$2')
+            var regex = /gallery\/([^\/]*?)\/\d+\..*?\/(.*)$/
+            if (regex.test(url)) {
+              url = url.replace('sea-modules/', '');
+              return url.replace(regex, '$1/dist/$2')
+            }
+            return url;
           }
         ]
       });
@@ -30,7 +35,7 @@
         mocha.setup('bdd')
 
         var modules = [
-          'jquery', 'color', 'tablesorter', 'datatables'
+          'handsontable'
         ]
 
         var specs = []
