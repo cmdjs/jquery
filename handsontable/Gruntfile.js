@@ -12,10 +12,10 @@ module.exports = function(grunt) {
                 options: {
                     transform: function(code) {
                         return [
-                            'define(function(require, exports) {',
+                            'define(function(require, exports, module) {',
                             'var previousJQuery = this.jQuery;',
                             "this.jQuery = require('$');",
-                            code.replace(/exports/g, 'exports_'),
+                            code,
                             "this.jQuery = previousJQuery;",
                             "});"
                         ].join('\n');
