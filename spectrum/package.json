@@ -28,7 +28,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://bgrins.github.com/spectrum"
+        "url": "git@github.com:bgrins/spectrum.git"
     },
     "spm": {
         "alias": {
