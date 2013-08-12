@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                     transform: function(code) {
                         return [
                             'define(function(require, exports, module) {',
-                            code.replace(/require\('jquery'\)/g, "require('$$')"),
+                            code.replace("require('jquery')", "require('$$')"),
                             "});"
                         ].join('\n');
                     }
