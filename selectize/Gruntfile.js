@@ -12,15 +12,18 @@ module.exports = function(grunt) {
                 options: {
                     transform: function(code) {
                         return [
-                            "define(function(require, exports, module) {",
-                            "var jQuery = require('$');",
-                            code,
+                            'define(function(require, exports, module) {',
+                            code.replace("require('jquery')", "require('$$')"),
                             "});"
                         ].join('\n');
                     }
                 },
-                url: 'https://raw.github.com/danro/jquery-easing/master/jquery.easing.js',
-                name: 'easing.js'
+                url: 'https://raw.github.com/brianreavis/selectize.js/v<%= pkg.version%>/selectize.js',
+                name: 'selectize.js'
+            },
+            css: {
+                url: 'https://raw.github.com/brianreavis/selectize.js/v<%= pkg.version%>/selectize.css',
+                name: "selectize.css"
             }
         }
     });
