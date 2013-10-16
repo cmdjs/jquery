@@ -5,8 +5,7 @@ define(function(require) {
 
   describe('select2', function() {
     it('should has select2 method', function() {
-      expect($.fn.handsontable).to.be.a('function');
-      expect(Select2.query).to.be.a('object');
+      expect($.fn.select2).to.be.a('function');
     });
   });
 
