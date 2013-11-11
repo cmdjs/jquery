@@ -1,0 +1,35 @@
+{
+  "family": "jquery",
+  "name": "at",
+  "version": "0.4.1",
+  "package": "https://github.com/ichord/At.js/blob/master/package.json",
+  "description": "Add Github like mentions autocomplete to your application.",
+  "homepage": "https://github.com/ichord/At.js",
+  "author": "Harold.luo <chord.luo@gmail.com>",
+  "maintainers": [{
+    "name": "Harold.luo",
+    "url": "https://github.com/ichord",
+    "email": "chord.luo@gmail.com"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ichord/at.js"
+  },
+  "bugs": "https://github.com/ichord/at.js/issues",
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  }],
+  "keywords": [],
+  "spm": {
+    "alias": {
+      "$": "$",
+      "caret": "jquery/jquery/caret/0.0.3/caret"
+    },
+    "output": {
+      "atwho.js": ".",
+      "atwho.css": "."
+
+    }
+  }
+}
