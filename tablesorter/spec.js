@@ -7,7 +7,7 @@ define(function(require) {
     });
 
     it('should has tablesorter method', function() {
-      require('./dist/tablesorter');
+      require('./src/tablesorter');
       var $ = require('$');
       expect($.fn.tablesorter).to.be.a('function');
     });

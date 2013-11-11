@@ -1,44 +1,72 @@
 module.exports = function(grunt) {
-  var pkg = grunt.file.readJSON('package.json');
+    var pkg = grunt.file.readJSON('package.json');
 
-  var prefix = '<%= pkg.family %>/<%= pkg.name %>/<%= pkg.version %>';
+    grunt.initConfig({
+        pkg: pkg,
 
-  var download = {
-    options: {
-      dest: 'src'
-    }
-  };
-  var files = [
-    'metadata',
-    'tablesorter',
-    'tablesorter.widgets-filter-formatter',
-    'tablesorter.widgets'
-  ];
-  for (var file in files) {
-    var filename = files[file].split('.').pop();
-    download[filename] = {
-      options: {
-        header: [
-          'define(function(require) {',
-          '  var jQuery = require("$");'
-        ].join('\n'),
-        footer: '});'
-      },
-      url: 'https://raw.github.com/Mottie/tablesorter/v<%= pkg.version %>/js/jquery.' + files[file] + '.js',
-      name: filename + '.js'
-    };
-  }
+        download: {
+            options: {
+                dest: 'src'
+            },
+            tablesorter: {
+                options: {
+                    transform: function(code) {
+                        return [
+                            'define(function(require, exports, module) {',
+                            "var jQuery = require('$');",
+                            code,
+                            "});"
+                        ].join('\n');
+                    }
+                },
+                url: 'https://raw.github.com/Mottie/tablesorter/v<%= pkg.version%>/js/jquery.tablesorter.js',
+                name: 'tablesorter.js'
+            },
+            widgets: {
+                options: {
+                    transform: function(code) {
+                        return [
+                            'define(function(require, exports, module) {',
+                            "var jQuery = require('$');",
+                            code,
+                            "});"
+                        ].join('\n');
+                    }
+                },
+                url: 'https://raw.github.com/Mottie/tablesorter/v<%= pkg.version%>/js/jquery.tablesorter.widgets.js',
+                name: 'widgets.js'
+            },
+            metadata: {
+                options: {
+                    transform: function(code) {
+                        return [
+                            'define(function(require, exports, module) {',
+                            "var jQuery = require('$');",
+                            code,
+                            "});"
+                        ].join('\n');
+                    }
+                },
+                url: 'https://raw.github.com/Mottie/tablesorter/v<%= pkg.version%>/js/jquery.metadata.js',
+                name: 'metadata.js'
+            },
+            formatter: {
+                options: {
+                    transform: function(code) {
+                        return [
+                            'define(function(require, exports, module) {',
+                            "var jQuery = require('$');",
+                            code,
+                            "});"
+                        ].join('\n');
+                    }
+                },
+                url: 'https://raw.github.com/Mottie/tablesorter/v<%= pkg.version%>/js/jquery.tablesorter.widgets-filter-formatter.js',
+                name: 'widgets-filter-formatter.js'
+            }
+        }
+    });
 
-  grunt.initConfig({
-    pkg: pkg,
-
-    prefix: '<%= pkg.family %>/<%= pkg.name %>/<%= pkg.version %>',
-
-    download: download
-  });
-
-  require('../node_modules/grunt-spm-build/').init(grunt, {pkg: pkg});
-  grunt.loadTasks('../node_modules/grunt-spm-build/tasks');
-  grunt.loadTasks('../_tasks/download/tasks');
-  grunt.registerTask('build', ['download', 'spm-build']);
+    grunt.loadTasks('../_tasks/download/tasks');
+    grunt.registerTask('default', ['download']);
 };
