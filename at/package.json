@@ -26,10 +26,6 @@
       "$": "$",
       "caret": "jquery/jquery/caret/0.0.3/caret"
     },
-    "output": {
-      "atwho.js": ".",
-      "atwho.css": "."
-
-    }
+    "output": ["atwho.js", "atwho.css"]
   }
 }
