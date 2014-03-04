@@ -26,5 +26,5 @@ module.exports = function(grunt) {
     });
 
     grunt.loadTasks('../_tasks/download/tasks');
-    grunt.registerTask('default', ['download']);
+    grunt.registerTask('build', ['download']);
 };
