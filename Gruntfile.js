@@ -71,7 +71,13 @@ module.exports = function(grunt) {
 
   function getVersion(repo, callback) {
     var uri = 'https://api.github.com/repos/' + repo + '/tags'
-    request({json: true, url: uri}, function(err, res, body) {
+    request({
+      json: true,
+      url: uri,
+      headers: {
+        'User-Agent': 'request'
+      }
+    }, function(err, res, body) {
       if (err) {
         callback(err);
       } else if (res.statusCode !== 200) {
