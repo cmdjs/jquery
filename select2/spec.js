@@ -1,7 +1,7 @@
 define(function(require) {
 
   var $ = require("$");
-  var Select2 = require('./src/select2');
+  var Select2 = require('./dist/select2');
 
   describe('select2', function() {
     it('should has select2 method', function() {

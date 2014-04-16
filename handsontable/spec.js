@@ -1,7 +1,7 @@
 define(function(require) {
 
   var $ = require("$");
-  require('./src/handsontable');
+  require('./dist/handsontable');
 
   describe('handsontable', function() {
     it('should has handsontable method', function() {

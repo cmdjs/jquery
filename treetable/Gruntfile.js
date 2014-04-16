@@ -37,38 +37,14 @@ module.exports = function(grunt) {
             css2: {
                 url: 'https://raw.github.com/ludo/jquery-treetable/<%= pkg.version%>/stylesheets/jquery.treetable.css',
                 name: "treetable.css"
-            },
-            images1: {
-                url: 'https://raw.github.com/ludo/jquery-treetable/<%= pkg.version%>/images/bg-table-thead.png',
-                name: 'bg-table-thead.png'
-            },
-            images2: {
-                url: 'https://raw.github.com/ludo/jquery-treetable/<%= pkg.version%>/images/collapse-light.png',
-                name: 'collapse-light.png'
-            },
-            images3: {
-                url: 'https://raw.github.com/ludo/jquery-treetable/<%= pkg.version%>/images/collapse.png',
-                name: 'collapse.png'
-            },
-            images4: {
-                url: 'https://raw.github.com/ludo/jquery-treetable/<%= pkg.version%>/images/expand-light.png',
-                name: 'expand-light.png'
-            },
-            images5: {
-                url: 'https://raw.github.com/ludo/jquery-treetable/<%= pkg.version%>/images/expand.png',
-                name: 'expand.png'
-            },
-            images6: {
-                url: 'https://raw.github.com/ludo/jquery-treetable/<%= pkg.version%>/images/file.png',
-                name: 'file.png'
-            },
-            images7: {
-                url: 'https://raw.github.com/ludo/jquery-treetable/<%= pkg.version%>/images/folder.png',
-                name: 'folder.png'
             }
         }
     });
 
+    grunt.loadGlobalTasks('spm-build');
+    grunt.util._.merge(grunt.config.data, require('spm-build').config);
+
     grunt.loadTasks('../_tasks/download/tasks');
-    grunt.registerTask('default', ['download']);
+    grunt.registerTask('build', ['download', 'spm-build']);
+
 };

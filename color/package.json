@@ -1,6 +1,5 @@
 {
   "family": "jquery",
-  "root": "jquery",
   "name": "color",
   "version": "2.1.2",
   "package": "https://raw.github.com/jquery/jquery-color/master/package.json",
@@ -33,8 +32,8 @@
     "alias": {
       "$": "$"
     },
-    "output": {
-      "color.js": "color.js"
-    }
+    "output": [
+      "color.js"
+    ]
   }
 }

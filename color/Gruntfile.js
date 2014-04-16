@@ -35,4 +35,5 @@ module.exports = function(grunt) {
 
   grunt.loadTasks('../_tasks/download/tasks');
   grunt.registerTask('build', ['download']);
+
 };

@@ -1,7 +1,7 @@
 define(function(require) {
 
   var $ = require("$");
-  var Spectrum = require('./src/spectrum');
+  var Spectrum = require('./dist/spectrum');
 
   describe('Spectrum', function() {
     it('should has spectrum method', function() {

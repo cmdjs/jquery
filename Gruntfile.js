@@ -2,9 +2,10 @@ module.exports = function(grunt) {
   var fs = require('fs');
   var async = require('async');
   var request = require('request');
+  var semver = require('semver');
 
   var modules = fs.readdirSync('.').filter(function(name) {
-    return fs.statSync(name).isDirectory() && !grunt.util._.contains(['.git', '_tasks', 'node_modules'], name);
+    return fs.statSync(name).isDirectory() && !grunt.util._.contains(['.git', '_tasks', 'node_modules', 'sea-modules'], name);
   });
 
   grunt.registerTask('check', function() {
@@ -62,6 +63,7 @@ module.exports = function(grunt) {
       var repo = pkg.repository.url;
       repo = repo.replace('https://github.com/', '');
       repo = repo.replace('git://github.com/', '');
+      repo = repo.replace('git@github.com:', '');
       repo = repo.replace('.git', '');
       getVersion(repo, callback);
     } else {
@@ -71,15 +73,21 @@ module.exports = function(grunt) {
 
   function getVersion(repo, callback) {
     var uri = 'https://api.github.com/repos/' + repo + '/tags'
-    request({json: true, url: uri}, function(err, res, body) {
+    request({
+      json: true,
+      url: uri,
+      headers: {
+        'User-Agent': 'request'
+      }
+    }, function(err, res, body) {
       if (err) {
         callback(err);
       } else if (res.statusCode !== 200) {
         callback('status code: ' + res.statusCode + ' ' + uri);
       } else {
-
         var names = body.map(function(tag) {
-          return tag.name.replace(/^[^\d\.]*((?:\d\.)+\d).*$/, '$1');
+          var version = semver.valid(tag.name);
+          if (version) return version;
         });
         callback(null, names.sort().pop());
       }
@@ -93,3 +101,4 @@ module.exports = function(grunt) {
     return s;
   }
 };
+

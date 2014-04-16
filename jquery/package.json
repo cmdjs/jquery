@@ -2,7 +2,7 @@
   "name": "jquery",
   "family": "jquery",
   "description": "JavaScript library for DOM operations",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "package": "https://raw.github.com/jquery/jquery/master/package.json",
   "homepage": "http://jquery.com",
   "author": {
@@ -19,5 +19,8 @@
   "licenses": [{
     "type": "MIT",
     "url": "https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt"
-  }]
+  }],
+  "spm": {
+    "output": ["jquery.js"]
+  }
 }

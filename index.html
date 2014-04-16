@@ -13,11 +13,12 @@
     <script type="text/javascript">
       seajs.config({
         alias: {
-          '$': 'jquery/jquery/1.7.2/jquery'
+          '$': 'jquery/jquery/1.7.2/jquery',
+          'jquery': 'jquery/jquery/1.7.2/jquery'
         },
         map: [
           function(url) {
-            var regex = /gallery\/([^\/]*?)\/\d+\..*?\/(.*)$/
+            var regex = /jquery\/([^\/]*?)\/\d+\..*?\/(.*)$/
             if (regex.test(url)) {
               url = url.replace('sea-modules/', '');
               return url.replace(regex, '$1/dist/$2')
@@ -35,7 +36,8 @@
         mocha.setup('bdd')
 
         var modules = [
-          'handsontable', 'select2', 'selectize', 'treetable', 'spectrum', 'highcharts'
+          'handsontable', 'select2', 'spectrum', 'jquery', 'datatables',
+          'easing', 'color', 'treetable'
         ]
 
         var specs = []
