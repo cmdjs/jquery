@@ -1,0 +1,37 @@
+{
+  "family": "jquery",
+  "name": "caret",
+  "version": "0.0.8",
+  "package": "https://github.com/ichord/Caret.js/blob/master/package.json",
+  "description": "Get caret position and offset from inputor",
+  "homepage": "https://github.com/ichord/Caret.js",
+  "author": "Harold.luo <chord.luo@gmail.com>",
+  "maintainers": [{
+    "name": "Harold.luo",
+    "url": "https://github.com/ichord",
+    "email": "chord.luo@gmail.com"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ichord/Caret.js"
+  },
+  "bugs": "https://github.com/ichord/Caret.js/issues",
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  }],
+  "keywords": [
+    "jquery",
+    "caret",
+    "offset",
+    "position"
+  ],
+  "spm": {
+    "alias": {
+      "$": "$"
+    },
+    "output": {
+      "caret.js": "."
+    }
+  }
+}
